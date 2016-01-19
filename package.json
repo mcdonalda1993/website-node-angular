@@ -2,13 +2,16 @@
   "name": "andrewmcdonald.co.uk",
   "version": "1.0.0",
   "description": "Personal website",
-  "main": "index.js",
+  "main": "server.js",
   "dependencies": {
     "express": "^4.13.3"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "preinstall": "npm install -g pm2",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "pm2 start server.js --watch",
+    "stop" : "pm2 stop server"
   },
   "repository": {
     "type": "git",
