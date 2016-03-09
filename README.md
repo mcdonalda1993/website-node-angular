@@ -1,8 +1,10 @@
-1. cd website/
-2. pm2 start server.js --watch
+# website-node-angular
 
-3. screen
-4. quasselcore
-5. Ctrl A, Ctrl D
-6. cd ../quassel-webserver/
-7. pm2 start app.js --name="quassel"'''
+'''cd website/
+pm2 start server.js --watch
+
+screen
+quasselcore
+Ctrl A, Ctrl D
+cd ../quassel-webserver/
+pm2 start app.js --name="quassel"'''
