@@ -15,7 +15,7 @@ app.get("/update", function(req, res){
 
 	currentHash = exec(getCurrentHashCMD).toString().split(" ")[0];
 	
-	latestRemoteHash = exec(getLatestRemoteHashCMD).toString().split(" ")[0];
+	latestRemoteHash = exec(getLatestRemoteHashCMD).toString().split("	")[0];
 	
 	if(currentHash != latestRemoteHash){
 		exec(updateCMD);
