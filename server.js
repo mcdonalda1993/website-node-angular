@@ -15,13 +15,13 @@ app.get("/update", function(req, res){
 
 	exec(getCurrentHashCMD, function(error, stdout, stderr) {
   		if(!error){
-  			currentHash = stdout.split(" ")[0];
+  			currentHash = stdout.toString().split(" ")[0];
   		}
 	});
 	
 	exec(getLatestRemoteHashCMD, function(error, stdout, stderr) {
   		if(!error){
-  			latestRemoteHash = stdout.split(" ")[0];
+  			latestRemoteHash = stdout.toString().split(" ")[0];
   		}
 	});
 	
