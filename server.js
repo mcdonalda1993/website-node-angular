@@ -13,17 +13,9 @@ app.get("/update", function(req, res){
 	var latestRemoteHash;
 	var updateCMD = "git pull";
 
-	exec(getCurrentHashCMD, function(error, stdout, stderr) {
-  		if(!error){
-  			currentHash = stdout.toString().split(" ")[0];
-  		}
-	});
+	currentHash = exec(getCurrentHashCMD).toString().split(" ")[0];
 	
-	exec(getLatestRemoteHashCMD, function(error, stdout, stderr) {
-  		if(!error){
-  			latestRemoteHash = stdout.toString().split(" ")[0];
-  		}
-	});
+	latestRemoteHash = exec(getLatestRemoteHashCMD).toString().split(" ")[0];
 	
 	if(currentHash != latestRemoteHash){
 		exec(updateCMD);
