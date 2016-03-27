@@ -1,9 +1,6 @@
 var express = require("express");
 var app = express();
-
-app.get("/", function(req, res){
-	res.send("Hello World");
-});
+app.use(express.static('public'));
 
 app.get("/update", function(req, res){
 	var exec = require('child_process').execSync;
@@ -23,7 +20,6 @@ app.get("/update", function(req, res){
 	} else{
 		res.send("Up to date. On revision: " + currentHash);
 	}
-	res.send("Hello World");
 });
 
 var server = app.listen(80, function(){
