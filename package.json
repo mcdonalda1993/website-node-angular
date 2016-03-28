@@ -15,9 +15,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://bitbucket.org/mcdonalda1993/website-node-angular.git"
+    "url": "git+https://github.com/mcdonalda1993/website-node-angular.git"
   },
   "author": "Andrew McDonald",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/mcdonalda1993/website-node-angular#readme"
+  "homepage": "https://github.com/mcdonalda1993/website-node-angular"
 }
