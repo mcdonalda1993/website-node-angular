@@ -1,6 +1,12 @@
+var nunjucks =  require('nunjucks');
 var express = require("express");
+
 var app = express();
 app.use(express.static('public'));
+nunjucks.configure('templates', {
+    autoescape: true,
+    express: app
+});
 
 app.get("/update", function(req, res){
 	var exec = require('child_process').execSync;
@@ -20,6 +26,10 @@ app.get("/update", function(req, res){
 	} else{
 		res.send("Up to date. On revision: " + currentHash);
 	}
+});
+
+app.get("/", function(req, res){
+	res.render("index.html");
 });
 
 var server = app.listen(80, function(){
