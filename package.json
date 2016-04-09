@@ -4,14 +4,15 @@
   "description": "Personal website",
   "main": "server.js",
   "dependencies": {
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "nunjucks": "^2.4.1"
   },
   "devDependencies": {},
   "scripts": {
     "preinstall": "npm install -g pm2",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "pm2 start server.js --watch",
-    "stop" : "pm2 stop server"
+    "start": "pm2 start server.js --watch",
+    "stop": "pm2 stop server"
   },
   "repository": {
     "type": "git",
