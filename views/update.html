@@ -12,11 +12,23 @@
 
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/skeleton.css">
-		<script src="js/vendor/modernizr-2.8.3.min.js"></script>
-		<script src="js/vendor/angular.js"></script>
+		<script type="text/javascript">
+			function Redirect() {
+			   window.location="/";
+			}
+			
+			document.write("You will be redirected to main page in 10 sec.");
+			setTimeout('Redirect()', 10000);
+		</script>
 	</head>
+	
 	<body>
-	{{value}}
+	
+	{% if current == latest %}
+		Up to date. On revision: {{ current }}
+	{% else %}
+		Updated. Was on revision {{ current }}, is now on revision {{ latest }}.
+	{% endif %}
 
 	</body>
 </html>

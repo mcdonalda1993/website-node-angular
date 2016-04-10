@@ -9,31 +9,26 @@ nunjucks.configure('views', {
 });
 
 app.get("/update", function(req, res){
+	var context = {};
+	
 	var exec = require('child_process').execSync;
 	var getCurrentHashCMD = 'git show-ref';
-	var currentHash;
 	var getLatestRemoteHashCMD = 'git ls-remote origin';
-	var latestRemoteHash;
 	var updateCMD = "git pull";
 
-	currentHash = exec(getCurrentHashCMD).toString().split(" ")[0];
+	context.current = exec(getCurrentHashCMD).toString().split(" ")[0];
 	
-	latestRemoteHash = exec(getLatestRemoteHashCMD).toString().split("	")[0];
+	context.latest = exec(getLatestRemoteHashCMD).toString().split("	")[0];
 	
-	if(currentHash != latestRemoteHash){
+	if(context.current != context.latest){
 		exec(updateCMD);
-		res.send("Was on: " + currentHash + "\r\n Updated to: " + latestRemoteHash);
-	} else{
-		res.send("Up to date. On revision: " + currentHash);
 	}
+	
+	res.render("update.html", context)
 });
 
 app.get("/", function(req, res){
 	res.render("index.html");
-});
-
-app.get("/test", function(req, res){
-	res.render("test.html", {value: "hello"});
 });
 
 var server = app.listen(80, function(){
