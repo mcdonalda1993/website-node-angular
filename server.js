@@ -32,6 +32,10 @@ app.get("/", function(req, res){
 	res.render("index.html");
 });
 
+app.get("/test", function(req, res){
+	res.render("test.html", {value: "hello"});
+});
+
 var server = app.listen(80, function(){
 	var host = server.address().address;
 	var port = server.address().port;
