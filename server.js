@@ -3,7 +3,7 @@ var express = require("express");
 
 var app = express();
 app.use(express.static('public'));
-nunjucks.configure('templates', {
+nunjucks.configure('views', {
     autoescape: true,
     express: app
 });
