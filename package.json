@@ -5,7 +5,9 @@
   "main": "server.js",
   "dependencies": {
     "express": "^4.13.3",
-    "nunjucks": "^2.4.1"
+    "letsencrypt-express": "^1.1.5",
+    "nunjucks": "^2.4.1",
+    "spdy": "^3.2.3"
   },
   "devDependencies": {},
   "scripts": {
