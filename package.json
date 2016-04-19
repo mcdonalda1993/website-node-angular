@@ -11,9 +11,9 @@
   },
   "devDependencies": {},
   "scripts": {
-    "preinstall": "npm install -g pm2",
+    "preinstall": "npm install -g pm2 && pm2 install pm2-logrotate",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "pm2 start server.js --watch",
+    "start": "pm2 start server.js --watch --merge-logs --log-date-format=\"YYYY-MM-DD HH:mm Z\"",
     "stop": "pm2 stop server"
   },
   "repository": {
