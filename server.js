@@ -1,17 +1,13 @@
 var http = require('http');
 var https = require('spdy');
-var express = require("express");
+/* Note: using staging server url, remove .testing() for production
+Using .testing() will overwrite the debug flag with true */ 
+var LEX = require('letsencrypt-express').testing();
 
-var app = express();
-var LEX = require('letsencrypt-express');
 var lex = LEX.create({
-  configDir: './letsencrypt.config'                 // ~/letsencrypt, /etc/letsencrypt, whatever you want
-
-, onRequest: app                                    // your express app (or plain node http app)
-
-, letsencrypt: null
-
-, approveRegistration: function (hostname, cb) {
+  configDir: require('os').homedir() + '/letsencrypt/etc'
+, approveRegistration: function (hostname, cb) { // leave `null` to disable automatic registration
+    // Note: this is the place to check your database to get the user associated with this domain
     cb(null, {
       domains: [hostname]
     , email: 'mcdonalda1993@gmail.com'
@@ -30,7 +26,9 @@ function redirectHttp() {
 
 function serveHttps() {
 	var nunjucks =  require('nunjucks');
+	var express = require("express");
 
+	var app = express();
 	app.use(express.static('public'));
 	nunjucks.configure('views', {
 		autoescape: true,
