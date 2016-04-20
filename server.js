@@ -1,6 +1,24 @@
 var http = require('http');
 var https = require('spdy');
+var express = require("express");
+
+var app = express();
 var LEX = require('letsencrypt-express');
+var lex = LEX.create({
+  configDir: './letsencrypt.config'                 // ~/letsencrypt, /etc/letsencrypt, whatever you want
+
+, onRequest: app                                    // your express app (or plain node http app)
+
+, letsencrypt: null
+
+, approveRegistration: function (hostname, cb) {
+    cb(null, {
+      domains: [hostname]
+    , email: 'mcdonalda1993@gmail.com'
+    , agreeTos: true
+    });
+  }
+});
 
 function redirectHttp() {
   http.createServer(LEX.createAcmeResponder(lex, function redirectHttps(req, res) {
@@ -12,9 +30,7 @@ function redirectHttp() {
 
 function serveHttps() {
 	var nunjucks =  require('nunjucks');
-	var express = require("express");
 
-	var app = express();
 	app.use(express.static('public'));
 	nunjucks.configure('views', {
 		autoescape: true,
