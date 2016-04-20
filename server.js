@@ -1,6 +1,6 @@
 var http = require('http');
 var https = require('spdy');
-// NOTE: you could use the old https module if for some reason you don't want to support modern browsers
+var LEX = require('letsencrypt-express');
 
 function redirectHttp() {
   http.createServer(LEX.createAcmeResponder(lex, function redirectHttps(req, res) {
