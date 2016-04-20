@@ -1,8 +1,6 @@
 var http = require('http');
 var https = require('spdy');
-/* Note: using staging server url, remove .testing() for production
-Using .testing() will overwrite the debug flag with true */ 
-var LEX = require('letsencrypt-express').testing();
+var LEX = require('letsencrypt-express');
 
 var lex = LEX.create({
   configDir: require('os').homedir() + '/letsencrypt/etc'
