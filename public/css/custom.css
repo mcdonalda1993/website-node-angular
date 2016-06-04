@@ -1,10 +1,23 @@
 
-.in.rows.of.three
-{
+.in.rows.of li { 
+    display: inline-block; 
+    *display:inline; 
+}
+
+.in.rows.of.three li{
     width: 33%;
 }
 
-.in.rows.of.two
-{
+.in.rows.of.three li:nth-of-type(3n):after {
+    content:"\A"; 
+    white-space:pre; 
+}
+
+.in.rows.of.two li{
     width: 50%;
+}
+
+.in.rows.of.two li:nth-of-type(2n):after {
+    content:"\A";
+    white-space:pre;
 }
