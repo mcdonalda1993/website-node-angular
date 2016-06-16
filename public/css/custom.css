@@ -1,11 +1,11 @@
 
 .in.rows.of li { 
     display: inline-block; 
-    *display:inline; 
+    *display:inline; /* For IE7 */
 }
 
 .in.rows.of.three li{
-    width: 33%;
+    width: 32%;
 }
 
 .in.rows.of.three li:nth-of-type(3n):after {
@@ -14,7 +14,7 @@
 }
 
 .in.rows.of.two li{
-    width: 50%;
+    width: 49%;
 }
 
 .in.rows.of.two li:nth-of-type(2n):after {
