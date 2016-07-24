@@ -4,6 +4,7 @@ var https = require('spdy');
 var nunjucks =  require('nunjucks');
 var express = require("express");
 
+// Setup SSL
 var sslPath = '/etc/letsencrypt/live/andrewmcdonald.co.uk/';
 var app = express();
 
@@ -16,6 +17,8 @@ var server = https.createServer(options, app);
 
 server.listen(443)
 app.listen(80)
+
+// Actual webserver
 	
 app.use(express.static('public'));
 nunjucks.configure('views', {
